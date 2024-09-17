@@ -20,8 +20,6 @@ const Profile = () => {
     setActiveTab(tab);
   };
 
-  console.log(userProfile);
-
   const displayPost =
     activeTab === "posts" ? userProfile?.posts : userProfile?.bookmarks;
 
@@ -147,11 +145,11 @@ const Profile = () => {
             </span>
           </div>
           <div className="grid grid-cols-3 gap-1">
-            {displayPost.map((post) => {
+            {displayPost?.map((post) => {
               return (
                 <div key={post?._id} className=" relative group cursor-pointer">
                   <img
-                    src={post.image}
+                    src={post?.image}
                     alt="postimage"
                     className="rounded-sm my-2 w-full aspect-square object-cover"
                   />
