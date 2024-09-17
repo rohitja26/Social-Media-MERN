@@ -8,9 +8,12 @@ const useGetAllPost = () => {
   useEffect(() => {
     const fetchAllPost = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/v1/post/all", {
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          "https://social-media-mern-xm15.onrender.com/api/v1/post/all",
+          {
+            withCredentials: true,
+          }
+        );
         if (res.data.success) {
           // console.log(res.data);
           dispatch(setPosts(res.data.posts));

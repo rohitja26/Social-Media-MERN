@@ -53,7 +53,7 @@ const EditProfile = () => {
       console.log(input);
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:8000/api/v1/user/profile/edit",
+        "https://social-media-mern-xm15.onrender.com/api/v1/user/profile/edit",
         formData,
         {
           headers: {
