@@ -10,20 +10,9 @@ dotenv.config({})
 import { app, server } from "./scoket/socket.js"
 import path from "path"
 
-const PORT = 8000 || process.env.PORT;
-
+const PORT = process.env.PORT || 8000;
 
 const __dirname = path.resolve();
-
-console.log(__dirname)
-
-app.get("/", (req, res) => {
-     return res.status(200).json({
-          message: 'I am coming from backend',
-          success: true
-     })
-})
-
 
 app.use(express.json())
 app.use(cookieParser())
@@ -43,7 +32,7 @@ app.use("/api/v1/message", messageRoute)
 app.use(express.static(path.join(__dirname, "/frontend/dist")))
 
 app.get("*", (req, res) => {
-     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+     res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
 })
 
 server.listen(PORT, () => {
@@ -52,4 +41,3 @@ server.listen(PORT, () => {
 })
 
 
-// cgQ4alR21K4p32bz
